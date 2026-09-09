@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>سوا في عربية واحدة</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- شاشة الدخول -->
+<div id="join">
+  <div class="cast"><span>🙉</span><span>🙈</span><span>🙊</span></div>
+  <h1>سوا في عربية واحدة</h1>
+  <p class="subtitle">
+    ادّي نفس "كود الأوضة" للاتنين التانيين عشان تدخلوا نفس اللعبة مع بعض.
+    محتاجين تلبسوا سماعة (هيدفون) عشان الصوت الحقيقي بينكم.
+  </p>
+  <input id="nameInput" placeholder="اسمك" maxlength="14">
+  <input id="roomInput" placeholder="كود الأوضة (مثال: family1)" maxlength="14">
+  <button class="btn" id="joinBtn">ادخل الأوضة 🚗</button>
+  <p class="hint">لازم تسمح للمتصفح باستخدام المايك لما يسألك.</p>
+</div>
+
+<!-- شاشة اللعب -->
+<div id="game" class="hidden">
+  <div id="topbar">
+    <div id="playersList"></div>
+    <div id="roleBanner"></div>
+    <button class="icon-btn" id="micIcon">🎤</button>
+  </div>
+
+  <canvas id="scene"></canvas>
+  <div id="blindOverlay"></div>
+
+  <div id="controls">
+    <button class="btn" id="driveBtn">🚗 أنا هسوق</button>
+    <div id="reactions">
+      <button class="react-btn" data-e="😂">😂</button>
+      <button class="react-btn" data-e="👍">👍</button>
+      <button class="react-btn" data-e="😱">😱</button>
+      <button class="react-btn" data-e="🤝">🤝</button>
+      <button class="react-btn" data-e="➡️">➡️</button>
+      <button class="react-btn" data-e="⬅️">⬅️</button>
+    </div>
+    <div id="hint">مفاتيح ← → للسواق بس</div>
+  </div>
+
+  <div id="gameoverBox" class="hidden">
+    <h2>💥 خلصت الجولة</h2>
+    <p id="finalScore"></p>
+    <button class="btn" id="closeGameOver">تمام</button>
+  </div>
+</div>
+
+<!-- عناصر صوت اللاعبين (مخفية) -->
+<div id="audioHolder" style="display:none;"></div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
+<script src="https://unpkg.com/three@0.160.0/build/three.min.js"></script>
+<script src="client.js"></script>
+</body>
+</html>
